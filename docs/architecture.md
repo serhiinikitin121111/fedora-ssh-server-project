@@ -57,18 +57,18 @@ The architecture consists of a client layer, a virtualized network, the Fedora V
 ```mermaid
 flowchart TD
 
-    A[iPhone<br>SSH Client (iTerminal)]
-    B[UTM Virtual Network<br>(NAT)]
-    C[Fedora VM]
-    D[System Services<br>systemd → sshd.service]
-    E[Security Layer<br>- SSH Auth<br>- FirewallD 22/tcp<br>- SELinux]
-    F[Logging<br>journalctl -u sshd]
+    A["iPhone / SSH Client (iTerminal)"]
+    B["UTM Virtual Network (NAT)"]
+    C["Fedora VM"]
+    D["System Services\n(systemd, sshd.service)"]
+    E["Security Layer\n(SSH Auth, Firewall 22/tcp, SELinux)"]
+    F["Logging\n(journald -u sshd)"]
 
-    A -- SSH over 22/tcp --> B
+    A -->|SSH over 22/tcp| B
     B --> C
     C --> D
-    C --> E
-    C --> F
+    D --> E
+    E --> F
 ```
 
 ---
